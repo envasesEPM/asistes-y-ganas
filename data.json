@@ -1,5 +1,6 @@
 [
   {
+    "id_empleado": "EMP-322",
     "no_empleado": 322,
     "nombre_completo": "CERVANTES MOLINA IVONNE",
     "alias": "Ivonne",
@@ -10,6 +11,7 @@
     "fecha_actualizacion": "2026-06-09"
   },
   {
+    "id_empleado": "EMP-323",
     "no_empleado": 323,
     "nombre_completo": "RAMIREZ VALDEZ MAYTE MONSERRAT",
     "alias": "Monse",
@@ -20,6 +22,7 @@
     "fecha_actualizacion": "2026-06-09"
   },
   {
+    "id_empleado": "EMP-324",
     "no_empleado": 324,
     "nombre_completo": "VILLANUEVA ASTA JULY",
     "alias": "July",
@@ -30,6 +33,7 @@
     "fecha_actualizacion": "2026-06-09"
   },
   {
+    "id_empleado": "EMP-325",
     "no_empleado": 325,
     "nombre_completo": "MORAN JIMENEZ YASMIN",
     "alias": "Yas",
@@ -40,6 +44,7 @@
     "fecha_actualizacion": "2026-06-09"
   },
   {
+    "id_empleado": "EMP-326",
     "no_empleado": 326,
     "nombre_completo": "MELLADO SEBASTIAN",
     "alias": "Sebas",
