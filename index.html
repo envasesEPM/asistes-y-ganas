@@ -1144,21 +1144,10 @@ function formatDateShort(dateStr) {
 }
 
 /* ── INIT ──────────────────────────────────────── */
-async function init() {
-  // Try to load data.json — timeout after 4s, fall back to embedded data
-  try {
-    const controller = new AbortController();
-    const timer = setTimeout(() => controller.abort(), 4000);
-    const resp = await fetch('data.json?t=' + Date.now(), { signal: controller.signal });
-    clearTimeout(timer);
-    if (resp.ok) {
-      APP_DATA = await resp.json();
-    } else {
-      throw new Error('not found');
-    }
-  } catch(e) {
-    APP_DATA = EMBEDDED_DATA;
-  }
+function init() {
+  // Datos embebidos directamente — sin fetch, carga instantánea
+  // Para actualizar: RH pega los nuevos datos en EMBEDDED_DATA arriba
+  APP_DATA = EMBEDDED_DATA;
 
   // Restore saved session
   const saved = sessionStorage.getItem('epm_user');
@@ -1168,17 +1157,15 @@ async function init() {
 
   applyMeta();
 
-  // Determine initial screen
-  setTimeout(() => {
-    if (!APP_DATA.meta.portal_activo) {
-      showScreen('closed');
-    } else if (CURRENT_USER) {
-      renderHome();
-      showScreen('home');
-    } else {
-      showScreen('login');
-    }
-  }, 300); // brief loading screen
+  // Mostrar pantalla inmediatamente
+  if (!APP_DATA.meta.portal_activo) {
+    showScreen('closed');
+  } else if (CURRENT_USER) {
+    renderHome();
+    showScreen('home');
+  } else {
+    showScreen('login');
+  }
 }
 
 function applyMeta() {
@@ -1417,7 +1404,6 @@ function handleFileUpload(event) {
     try {
       const parsed = JSON.parse(e.target.result);
 
-      // Validate structure
       if (!parsed.meta || !parsed.colaboradores) {
         throw new Error('El archivo no tiene la estructura correcta (falta meta o colaboradores).');
       }
@@ -1428,16 +1414,19 @@ function handleFileUpload(event) {
         throw new Error('El campo colaboradores debe ser una lista.');
       }
 
+      // Update live data for this session
       APP_DATA = parsed;
       CURRENT_USER = null;
       sessionStorage.removeItem('epm_user');
-
       updateRHDash();
       applyMeta();
 
       const count = parsed.colaboradores.length;
       status.className = 'rh-upload-status ok';
-      status.textContent = `✓ Datos actualizados correctamente. ${count} colaboradores cargados. Última actualización: ${parsed.meta.generado_en || 'hoy'}.`;
+      status.innerHTML = `✓ ${count} colaboradores cargados en esta sesión.<br><br>`
+        + `<strong style="color:#7DEBA0">Para que todos los usuarios vean los datos nuevos:</strong><br>`
+        + `Sube el archivo <code>data.json</code> a GitHub reemplazando el anterior `
+        + `(Add file → Upload files → Commit changes). El portal se actualiza en ~60 segundos.`;
 
     } catch(err) {
       status.className = 'rh-upload-status err';
@@ -1445,7 +1434,7 @@ function handleFileUpload(event) {
     }
   };
   reader.readAsText(file, 'UTF-8');
-  event.target.value = ''; // allow re-upload of same file
+  event.target.value = '';
 }
 
 // Drag and drop for upload zone
