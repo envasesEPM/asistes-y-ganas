@@ -1,0 +1,52 @@
+[
+  {
+    "no_empleado": 322,
+    "nombre_completo": "CERVANTES MOLINA IVONNE",
+    "alias": "Ivonne",
+    "area": "RRHH",
+    "activo": "ALTA",
+    "total_boletos": 3,
+    "folios_boletos": "4147,3281,0771",
+    "fecha_actualizacion": "2026-06-09"
+  },
+  {
+    "no_empleado": 323,
+    "nombre_completo": "RAMIREZ VALDEZ MAYTE MONSERRAT",
+    "alias": "Monse",
+    "area": "Calidad",
+    "activo": "ALTA",
+    "total_boletos": 2,
+    "folios_boletos": "4136,0351",
+    "fecha_actualizacion": "2026-06-09"
+  },
+  {
+    "no_empleado": 324,
+    "nombre_completo": "VILLANUEVA ASTA JULY",
+    "alias": "July",
+    "area": "Compras",
+    "activo": "ALTA",
+    "total_boletos": 32,
+    "folios_boletos": "2983,0040,3494,1443,0538,4272,1114,4739,2072,1828,4772,1491,3453,4388,1788,1016,4303,3786,4722,0859,1952,0929,0900,1516,3297,3520,3649,0071,3306,2977,0631,0573",
+    "fecha_actualizacion": "2026-06-09"
+  },
+  {
+    "no_empleado": 325,
+    "nombre_completo": "MORAN JIMENEZ YASMIN",
+    "alias": "Yas",
+    "area": "Producción",
+    "activo": "ALTA",
+    "total_boletos": 1,
+    "folios_boletos": 4349,
+    "fecha_actualizacion": "2026-06-09"
+  },
+  {
+    "no_empleado": 326,
+    "nombre_completo": "MELLADO SEBASTIAN",
+    "alias": "Sebas",
+    "area": "RRHH",
+    "activo": "ALTA",
+    "total_boletos": 3,
+    "folios_boletos": "0739,2391,2964",
+    "fecha_actualizacion": "2026-06-09"
+  }
+]
