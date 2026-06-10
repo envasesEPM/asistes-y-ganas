@@ -1055,64 +1055,877 @@ body {
 <script>
 /* ── DATA ──────────────────────────────────────── */
 // Embedded data (loaded from data.json in production, embedded for demo)
-const EMBEDDED_DATA =
-[
-  {
-    "id_empleado": "EMP-322",
-    "no_empleado": 322,
-    "nombre_completo": "CERVANTES MOLINA IVONNE",
-    "alias": "Ivonne",
-    "area": "RRHH",
-    "activo": "ALTA",
-    "total_boletos": 3,
-    "folios_boletos": "4147,3281,0771",
-    "fecha_actualizacion": "2026-06-09"
+const EMBEDDED_DATA = {
+  "meta": {
+    "campana": "Asistes y Ganas · Mundial 2026",
+    "sorteo_final": "2026-07-19",
+    "portal_activo": true,
+    "generado_en": "2026-06-10T21:16:19"
   },
-  {
-    "id_empleado": "EMP-323",
-    "no_empleado": 323,
-    "nombre_completo": "RAMIREZ VALDEZ MAYTE MONSERRAT",
-    "alias": "Monse",
-    "area": "Calidad",
-    "activo": "ALTA",
-    "total_boletos": 2,
-    "folios_boletos": "4136,0351",
-    "fecha_actualizacion": "2026-06-09"
-  },
-  {
-    "id_empleado": "EMP-324",
-    "no_empleado": 324,
-    "nombre_completo": "VILLANUEVA ASTA JULY",
-    "alias": "July",
-    "area": "Compras",
-    "activo": "ALTA",
-    "total_boletos": 32,
-    "folios_boletos": "2983,0040,3494,1443,0538,4272,1114,4739,2072,1828,4772,1491,3453,4388,1788,1016,4303,3786,4722,0859,1952,0929,0900,1516,3297,3520,3649,0071,3306,2977,0631,0573",
-    "fecha_actualizacion": "2026-06-09"
-  },
-  {
-    "id_empleado": "EMP-325",
-    "no_empleado": 325,
-    "nombre_completo": "MORAN JIMENEZ YASMIN",
-    "alias": "Yas",
-    "area": "Producción",
-    "activo": "ALTA",
-    "total_boletos": 1,
-    "folios_boletos": 4349,
-    "fecha_actualizacion": "2026-06-09"
-  },
-  {
-    "id_empleado": "EMP-326",
-    "no_empleado": 326,
-    "nombre_completo": "MELLADO SEBASTIAN",
-    "alias": "Sebas",
-    "area": "RRHH",
-    "activo": "ALTA",
-    "total_boletos": 3,
-    "folios_boletos": "0739,2391,2964",
-    "fecha_actualizacion": "2026-06-09"
-  }
-];
+  "colaboradores": [
+    {
+      "no_empleado": "3",
+      "nombre_completo": "APARICIO OLVERA RAMON",
+      "alias": "Ramon",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4147",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "12",
+      "nombre_completo": "TIRZO GARCIA JOSE",
+      "alias": "Jose",
+      "area": "OPERADOR DE PRODUCCIÓN SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4136",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "14",
+      "nombre_completo": "MALDONADO RUIZ BLANCA ROSA",
+      "alias": "Blanca",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2983",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "16",
+      "nombre_completo": "GARCIA MOLINA BRYAN ANTONIO",
+      "alias": "Bryan",
+      "area": "OPERADOR DE PRODUCCIÓN SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4349",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "17",
+      "nombre_completo": "SANCHEZ SALAS EDUARDO",
+      "alias": "Eduardo",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0739",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "18",
+      "nombre_completo": "CUEVAS MAYA ROSA",
+      "alias": "Rosa",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3136",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "20",
+      "nombre_completo": "GARCIA CALDERON VIANEY",
+      "alias": "Vianey",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1758",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "27",
+      "nombre_completo": "RAMIREZ PEREZ GUADALUPE DELFINA",
+      "alias": "Lupita",
+      "area": "ANALISTA DE COMPRAS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0554",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "28",
+      "nombre_completo": "SOLANO LINARES FRANCISCO JAVIER",
+      "alias": "Javier",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4341",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "84",
+      "nombre_completo": "PEÑAFLOR VENTURA VALERIA",
+      "alias": "Valeria",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4804",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "85",
+      "nombre_completo": "CUAMO CAMACHO KARLA VERONICA",
+      "alias": "Karla",
+      "area": "OPERADOR DE PRODUCCIÓN SEMI SENIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3207",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "93",
+      "nombre_completo": "CALVILLO GONZALEZ JOSE",
+      "alias": "Jose",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4483",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "119",
+      "nombre_completo": "ABAD DECKER JUAN CARLOS",
+      "alias": "Juan Carlos",
+      "area": "GERENTE GENERAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0888",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "120",
+      "nombre_completo": "TORRES INTRIAGO MARIA VERONICA",
+      "alias": "Veronica",
+      "area": "DIRECCIÓN GENERAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4108",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "123",
+      "nombre_completo": "SOSA SAN GERMAN JUAN CARLOS",
+      "alias": "Juan Carlos",
+      "area": "SUPERVISOR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1248",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "127",
+      "nombre_completo": "CONTRERAS MATA CLAUDIA IVETH",
+      "alias": "Claudia",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2918",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "132",
+      "nombre_completo": "OLGUIN MOLINA JHON JAIRO",
+      "alias": "Jhon",
+      "area": "SUPERVISOR DE MAQUINAS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1783",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "134",
+      "nombre_completo": "SUAREZ ORTEGA ALMA LIDIA",
+      "alias": "Alma",
+      "area": "LIDER DE BODEGA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4418",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "141",
+      "nombre_completo": "REYNA MENDEZ JUAN CARLOS",
+      "alias": "Juan Carlos",
+      "area": "SUPERVISOR DE BODEGA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3975",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "142",
+      "nombre_completo": "CONTRERAS MARQUEZ KRISTIAN CELSO",
+      "alias": "Kristian",
+      "area": "SUPERVISOR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2037",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "143",
+      "nombre_completo": "JUAREZ HERNANDEZ MONSERRAT",
+      "alias": "Monse",
+      "area": "EJECUTIVO COMERCIAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0989",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "145",
+      "nombre_completo": "LOPEZ ROJAS MARCO ANTONIO",
+      "alias": "Marco",
+      "area": "TÉCNICO ELECTROMECÁNICO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2408",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "146",
+      "nombre_completo": "GARCIA TOLENTINO MARDONIO",
+      "alias": "Mardonio",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1386",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "147",
+      "nombre_completo": "LOPEZ MENDEZ EVELIN ELENA",
+      "alias": "Eve",
+      "area": "ANALISTA DE COSTOS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2337",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "149",
+      "nombre_completo": "CEVALLOS VALAREZO CHRISTIAN EDUARDO",
+      "alias": "Christian",
+      "area": "SUB DIRECTOR GENERAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4833",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "150",
+      "nombre_completo": "POLO VALDIVIESO RUBEN EDUARDO",
+      "alias": "Ruben",
+      "area": "COORDINADOR COMERCIAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3689",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "165",
+      "nombre_completo": "MONTERO ROJAS JOSE DE JESUS",
+      "alias": "Jesus",
+      "area": "LIDER DE MANTENIMIENTO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0141",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "178",
+      "nombre_completo": "GONZALEZ GARCIA CESAR",
+      "alias": "Cesar",
+      "area": "TÉCNICO ELECTROMECÁNICO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1826",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "192",
+      "nombre_completo": "LUQUE VERA JACQUELINE",
+      "alias": "Jaqui",
+      "area": "ANALISTA DE MESA DE CONTROL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2504",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "194",
+      "nombre_completo": "CERVANTES OLVERA IVONNE",
+      "alias": "Ivo",
+      "area": "ANALISTA DE RECLUTAMIENTO Y SELECCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2889",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "198",
+      "nombre_completo": "NOYA OLALDE CASANDRA GUADALUPE",
+      "alias": "Casandra",
+      "area": "INSPECTOR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3874",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "200",
+      "nombre_completo": "RODRIGUEZ FLORES MARIA DE LA LUZ",
+      "alias": "Maria",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2126",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "201",
+      "nombre_completo": "CUEVAS MENDEZ MONTSERRAT",
+      "alias": "Montse",
+      "area": "INSPECTOR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3134",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "202",
+      "nombre_completo": "HERNANDEZ BALDERAS ITZEL",
+      "alias": "Itzel",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1778",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "204",
+      "nombre_completo": "GONZALEZ MARICHE JESUS",
+      "alias": "Jesus",
+      "area": "PATINERO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3377",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "205",
+      "nombre_completo": "CORTES FABIAN SABINE ANDREA",
+      "alias": "Andrea",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0993",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "207",
+      "nombre_completo": "ORTIZ GONZALEZ ANGEL",
+      "alias": "Angel",
+      "area": "MONTACARGUISTA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1151",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "208",
+      "nombre_completo": "CORDOVA HERNANDEZ MIGUEL ANGEL",
+      "alias": "Miguel",
+      "area": "TÉCNICO ELECTROMECÁNICO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1614",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "213",
+      "nombre_completo": "MENDEZ DIONICIO ERNESTO",
+      "alias": "Ernesto",
+      "area": "ANALISTA DE PROGRAMACIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3681",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "218",
+      "nombre_completo": "ARVIZU GOMEZ JUAN JESUS",
+      "alias": "Juan",
+      "area": "TÉCNICO ELECTROMECÁNICO",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4515",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "219",
+      "nombre_completo": "GONZALEZ COPTO RODOLFO",
+      "alias": "Rodo",
+      "area": "ANALISTA SENIOR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4501",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "221",
+      "nombre_completo": "RODRIGUEZ GARCIA JULIO CESAR",
+      "alias": "Julio",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3783",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "224",
+      "nombre_completo": "ROMERO ANGELES CHRISTIAN JAIR",
+      "alias": "Christian",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0251",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "225",
+      "nombre_completo": "MORENO MARTINEZ IRWIN JAIR",
+      "alias": "Irwin",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0785",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "226",
+      "nombre_completo": "BARRAGAN BARRAGAN NANCY JANNET",
+      "alias": "Nancy",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2171",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "227",
+      "nombre_completo": "FUENTES LOPEZ MARIA YESSENIA",
+      "alias": "Yessenia",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2874",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "232",
+      "nombre_completo": "VIVEROS VILLAREAL ZULEIMA TANIA",
+      "alias": "Zule",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2045",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "240",
+      "nombre_completo": "BOCARDO MERCADO SOFIA HAYDEE",
+      "alias": "Sofia",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4380",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "241",
+      "nombre_completo": "MALDONADO VILLARREAL EDGAR LODWING",
+      "alias": "Edgar",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3125",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "243",
+      "nombre_completo": "BINZHA DELGADO ARIEL ALEXIS",
+      "alias": "Alexis",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2070",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "245",
+      "nombre_completo": "DORANTES ZAMORA JOSE ANTONIO",
+      "alias": "Jose Antonio",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2894",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "246",
+      "nombre_completo": "VIEYRA GUZMAN MAYRA GUADALUPE",
+      "alias": "Mayra",
+      "area": "INSPECTOR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2230",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "248",
+      "nombre_completo": "ORTEGA MALDONADO JOSUE DIDIER",
+      "alias": "Josue",
+      "area": "ANALISTA DE MESA DE CONTROL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2848",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "252",
+      "nombre_completo": "ISLAS MORALES CHRISTIAN ARIEL",
+      "alias": "Christian",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0907",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "256",
+      "nombre_completo": "SANTIAGO MORALES MARIO ALBERTO",
+      "alias": "Mario",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3073",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "259",
+      "nombre_completo": "JIMENEZ TOLENTINO MARIA DE LOS ANGELES",
+      "alias": "Maria",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0635",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "262",
+      "nombre_completo": "BOQUIÑO CASTRO SANTOS MATEO",
+      "alias": "Santos",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0865",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "270",
+      "nombre_completo": "MORENO ALVA JAZMIN",
+      "alias": "Jaz",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1446",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "272",
+      "nombre_completo": "VILLANUEVA ASTA JULY",
+      "alias": "July",
+      "area": "LIDER DE RECURSOS HUMANOS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0789",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "274",
+      "nombre_completo": "MARTINEZ HERVERT BRANDON",
+      "alias": "Brandon",
+      "area": "OPERADOR DE PRODUCCIÓN JUNIOR",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3093",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "276",
+      "nombre_completo": "RAMIREZ HERNANDEZ MARISOL",
+      "alias": "Marisol",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3556",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "277",
+      "nombre_completo": "ZARAGOZA BALLINAS MARIA ANGELICA ROCIO",
+      "alias": "Maria",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0863",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "281",
+      "nombre_completo": "ORTIZ VARGAS KAREN ISABEL",
+      "alias": "Karen",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2897",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "284",
+      "nombre_completo": "CONDE FLORES JAVIER",
+      "alias": "Javier",
+      "area": "AUXILIAR DE BODEGA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2692",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "285",
+      "nombre_completo": "CRUZ DIAZ JORGE",
+      "alias": "Jorge",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0198",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "286",
+      "nombre_completo": "RIVERA SOTO CAROLINA FERNANDA",
+      "alias": "Caro",
+      "area": "EJECUTIVO COMERCIAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4291",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "287",
+      "nombre_completo": "CANALES SANCHEZ CARLA ISABEL",
+      "alias": "Carla",
+      "area": "AUXILIAR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0382",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "289",
+      "nombre_completo": "GREGORIO GARCIA JORGE LUIS",
+      "alias": "Jorge",
+      "area": "AUXILIAR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1915",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "297",
+      "nombre_completo": "RANGEL PEREZ ALONDRA YESENIA",
+      "alias": "Alondra",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4122",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "298",
+      "nombre_completo": "HERNANDEZ LOPEZ NANCY VIANEY",
+      "alias": "Nancy",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2004",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "299",
+      "nombre_completo": "SILVA LIMA JESSICA ALEJANDRA",
+      "alias": "Jessi",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2954",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "300",
+      "nombre_completo": "MORAN GODINEZ CINTHYA",
+      "alias": "Cinthya",
+      "area": "INSPECTOR DE CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2554",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "303",
+      "nombre_completo": "YAÑEZ BENITEZ YESSICA",
+      "alias": "Yessica",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2547",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "304",
+      "nombre_completo": "ACOSTA CHAVEZ JAROTH EMMANUEL",
+      "alias": "Jaroth",
+      "area": "ASISTENTE COMERCIAL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1635",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "305",
+      "nombre_completo": "AGUILAR SANCHEZ CHRISTOFER ZURIEL",
+      "alias": "Zuri",
+      "area": "ANALISTA CONTABLE",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1182",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "310",
+      "nombre_completo": "MELLADO BARRAGAN SEBASTIAN",
+      "alias": "Sebastian",
+      "area": "ANALISTA DE NOMINA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "0549",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "312",
+      "nombre_completo": "MEJIA HERNANDEZ RUBEN",
+      "alias": "Ruben",
+      "area": "SUPERVISOR DE BODEGA",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "5000",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "315",
+      "nombre_completo": "HERNANDEZ RODRIGUEZ JACQUELINE",
+      "alias": "Jaqui",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3500",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "318",
+      "nombre_completo": "MARTINEZ ORTEGA JOSE CRUZ",
+      "alias": "Jose",
+      "area": "SUPERVISOR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3002",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "319",
+      "nombre_completo": "MENDOZA ARREOLA MARIBEL",
+      "alias": "Maribel",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1526",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "321",
+      "nombre_completo": "RAMIREZ BIURQUIS SILVIA BERENICE",
+      "alias": "Bere",
+      "area": "AUXILIAR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4437",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "322",
+      "nombre_completo": "VILLARRUEL ALTAMIRANO LUIS YAEL",
+      "alias": "Luis",
+      "area": "ANALISTA DE MESA DE CONTROL",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "4146",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "323",
+      "nombre_completo": "RAMIREZ VALDEZ MAYTE MONSERRAT",
+      "alias": "Monse",
+      "area": "AUXILIAR DE RECURSOS HUMANOS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "1284",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "324",
+      "nombre_completo": "MORAN SANTOS YASMIN",
+      "alias": "Yasmin",
+      "area": "SUPERVISOR DE PRODUCCIÓN",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2339",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "326",
+      "nombre_completo": "ZUÑIGA DE LA MORA ADELAIDA",
+      "alias": "Adelaida",
+      "area": "ANALISTA DE COMPRAS",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "3630",
+      "fecha_actualizacion": "2026-06-10"
+    },
+    {
+      "no_empleado": "327",
+      "nombre_completo": "MARTINEZ GONZALEZ ERIK ISAI",
+      "alias": "Erik",
+      "area": "LÍDER DE SISTEMAS DE GESTIÓN CALIDAD",
+      "activo": "ALTA",
+      "total_boletos": 1,
+      "folios_boletos": "2880",
+      "fecha_actualizacion": "2026-06-10"
+    }
+  ]
+};
+
 let APP_DATA = null;
 let CURRENT_USER = null;
 const RH_PASSWORD = "RIFAMU26";
